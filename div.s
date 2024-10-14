@@ -11,8 +11,8 @@ nl:	.asciz "\n"
 	.globl nl
 
 
-op1:	.word 7				# divisor for testing
-op2:	.word 19			# dividend for testing
+op1:	.word 3			# divdend for testing
+op2:	.word 276		# divisor for testing
 
 
 	.text
@@ -67,7 +67,7 @@ divide:
     mv      a3, t3        # a3 is the remainded, initalized to t3
 
 div_loop:
-    bge     t4, a3, end_div  # if divisor > remainder then exit
+    blt     t4, a3, end_div  # if divisor > remainder then exit
     sub     a3, a3, t4       # divison = remainder - divison
     addi    a2, a2, 1        # 
     j       div_loop         # loop
@@ -118,3 +118,4 @@ print_result:
 	ecall
 
 	jr ra
+
