@@ -67,7 +67,7 @@ divide:
     mv      a3, t3        # a3 is the remainded, initalized to t3
 
 div_loop:
-    blt     t4, a3, end_div  # if divisor > remainder then exit
+    blt     a3, t4, end_div  # if divisor > remainder then exit
     sub     a3, a3, t4       # divison = remainder - divison
     addi    a2, a2, 1        # 
     j       div_loop         # loop
